@@ -182,7 +182,7 @@ class CDBN(object):
         else:
           (ret_w_0 , ret_w_1), ret_b = self.softmax_trainer.compute_gradients(cross_entropy, var_list=[self.W,self.b])
           self.train_step = self.softmax_trainer.apply_gradients([(ret_w_0 , ret_w_1), ret_b])
-          self.control =  tf.reduce_mean(tf.abs(tf.div(tf.mul(ret_w_0,learning_rate),ret_w_1))) 
+          self.control =  tf.reduce_mean(tf.abs(tf.divide(tf.multiply(ret_w_0,learning_rate),ret_w_1))) 
     except ValueError as error:
       self._print_error_message(error)
       
